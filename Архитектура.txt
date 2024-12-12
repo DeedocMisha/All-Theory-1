@@ -1,0 +1,138 @@
+Архитектура ОДИНОЧКИ:
+1)  это порождающий паттерн проектирования, который гарантирует, что у класса есть только один экземпляр, и предоставляет к нему глобальную точку доступа.
+2) В классе есть все необх данные и для их сбора, надо обращаться к нему много раз изза разных вещей.
+
+https://refactoring.guru/ru/design-patterns/singleton
+
+АРХИТЕКТУРА СТРОИТЕЛЯ:
+ это поведенческий паттерн проектирования, который используется для создания сложных объектов пошагово. Этот паттерн позволяет конструировать разные представления одного и того же типа объектов, отделяя процесс создания объекта от его представления. Это особенно полезно, когда объект имеет множество параметров или конфигураций.
+
+ВСЕ ПОСЛЕДОВАТЕЛЬНО!!!!!!
+
+// Продукт
+class Car {
+  constructor() {
+    this.model = '';
+    this.color = '';
+    this.year = '';
+  }
+
+  specs() {
+    return `Model: ${this.model}, Color: ${this.color}, Year: ${this.year}`;
+  }
+}
+
+// Строитель
+class CarBuilder {
+  constructor() {
+    this.car = new Car();
+  }
+
+  setModel(model) {
+    this.car.model = model;
+    return this;
+  }
+
+  setColor(color) {
+    this.car.color = color;
+    return this;
+  }
+
+  setYear(year) {
+    this.car.year = year;
+    return this;
+  }
+
+  build() {
+    return this.car;
+  }
+}
+
+// Директор
+class CarDirector {
+  constructor(builder) {
+    this.builder = builder;
+  }
+
+  constructSportsCar() {
+    return this.builder
+      .setModel('Ferrari')
+      .setColor('Red')
+      .setYear(2022)
+      .build();
+  }
+
+  constructFamilyCar() {
+    return this.builder
+      .setModel('Toyota')
+      .setColor('Blue')
+      .setYear(2020)
+      .build();
+  }
+}
+
+// Использование
+const builder = new CarBuilder();
+const director = new CarDirector(builder);
+
+const sportsCar = director.constructSportsCar();
+console.log(sportsCar.specs()); // Model: Ferrari, Color: Red, Year: 2022
+
+const familyCar = director.constructFamilyCar();
+console.log(familyCar.specs()); // Model: Toyota, Color: Blue, Year: 2020
+
+3)Шаблонный метод
+ это паттерн проектирования, который определяет общий алгоритм для выполнения определенной задачи, разрешая подклассам переопределять некоторые шаги этого алгоритма, не изменяя его структуры. Этот паттерн позволяет вынести общую логику в базовый класс и переопределить лишь специфические действия в производных классах.
+class CoffeeTemplate {
+    // Шаблонный метод
+    prepare() {
+        this.boilWater();
+        this.brew();
+        this.pourInCup();
+        this.addCondiments();
+    }
+
+    boilWater() {
+        console.log("Кипятим воду");
+    }
+
+    pourInCup() {
+        console.log("Наливаем в чашку");
+    }
+
+    // Заглушки для подклассов
+    brew() {
+        throw new Error("Метод 'brew' должен быть переопределен!");
+    }
+
+    addCondiments() {
+        throw new Error("Метод 'addCondiments' должен быть переопределен!");
+    }
+}
+
+class Tea extends CoffeeTemplate {
+    brew() {
+        console.log("Заварка чая"); //ПЕРЕОПРЕДЕЛЯЕМ ПОКЛАСС!!!!!!! за место ошибки!
+    }
+
+    addCondiments() {
+        console.log("Добавляем лимон");
+    }
+}
+
+class Coffee extends CoffeeTemplate {
+    brew() {
+        console.log("Заварка кофе");
+    }
+
+    addCondiments() {
+        console.log("Добавляем сахар и молоко");
+    }
+}
+
+// Использование
+const tea = new Tea();
+tea.prepare(); 
+console.log();
+const coffee = new Coffee();
+coffee.prepare();

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Теория к ОГЭ с примерами и информация о устном собеседовании в 9 классе</title>
+    <meta name="description" content="Полезная информация для подготовки к ОГЭ и устному собеседованию в 9 классе. Теория с примерами и советы от экспертов.">
+    <meta name="keywords" content="Подготовка к ОГЭ,Устное собеседование, Подготовка к устному собеседоваию, ОГЭ математика, ОГЭ химия, ОГЭ информатика, ОГЭ подготовка, ОГЭ, ОГЭ курсы">  <!--SEO-->
+    <link rel="icon" href="./favicon.ico">
+    <!-- Yandex.RTB Loader -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://an.yandex.ru/system/context.js" async></script>
+    <meta name="google-site-verification" content="RL8NSE9lzWeDBPJ9lzuQElwQ5m9EAnKEx9l4MpTkCVQ" /> <!--Для Google подтверждения--> 
+</head>
+<body class="bg-gray-900 text-white dark:bg-white dark:text-gray-900">
+    <main>
+        <div id="app"></div>
+        
+    </main>
+    <!-- External JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
+
+Google Search Console

@@ -1,0 +1,11 @@
+http://sysengineering.ru/notes/ispolzovanie-docker-dlya-mysql-servera - Развертывание MsSql (   docker run -p 3307:3306 --name mysql1 -e MYSQL_ROOT_PASSWORD="passw" -e LANG=C.UTF-8 -d mysql/mysql-server:latest)
+скачай dbeaber и подключи его к бд
+и бахай в графике
+https://dbeaver.com/docs/dbeaver/
+Подключение: https://www.youtube.com/watch?v=hl55qULfHyU
+
+MsSql к Vuejs:
+pip install fastapi uvicorn sqlalchemy pymysql
+pip install mysql-connector-python
+pip install fastapi uvicorn sqlalchemy pymysql
+pip install rejson redis requests 
